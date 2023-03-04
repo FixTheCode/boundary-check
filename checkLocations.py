@@ -13,7 +13,7 @@ from shapely.geometry import Point
 from shapely.geometry import shape
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-f", "--file", help="file containint coordinates")
+parser.add_argument("-f", "--file", help="file containing coordinates")
 args = parser.parse_args()
 
 # open the shapefile
@@ -36,7 +36,7 @@ with open(args.file, 'r') as f:
             boundary = all_shapes[i] # get a boundary polygon
             if Point(point_to_check).within(shape(boundary)): # make a point and see if it's within the polygon
                 name = all_records[i][8] # get location name associated with the point
-                print ("US location: ", name, " ", lat, ",", lng, " File: ", file) 
+                print (f"{name},{lat},{lng},{file}") 
        
 
 
